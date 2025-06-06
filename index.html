@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Amor 💝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .title {
+            text-align: center;
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: heartbeat 2s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .photo-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .photo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .photo-card.active {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .photo {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .message {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .message.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .message::before {
+            content: "💝";
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .hearts {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        .heart {
+            position: absolute;
+            color: #ff69b4;
+            font-size: 20px;
+            animation: float-up 3s ease-out forwards;
+        }
+        
+        @keyframes float-up {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) scale(0.5);
+            }
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            font-size: 1.2rem;
+            margin-top: 40px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Para Mi Amor 💝</h1>
+        
+        <div class="gallery">
+            <div class="photo-card" onclick="showMessage(0)">
+                <img class="photo" src="images/imagen.jpg" alt="Foto 1">
+                <div class="message">
+                    Cada momento a tu lado es un regalo del cielo. Eres la razón por la que mi corazón late con tanta fuerza y mi alma encuentra paz. Te amo más de lo que las palabras pueden expresar, mi vida. ✨
+                </div>
+            </div>
+            
+            <div class="photo-card" onclick="showMessage(1)">
+                <img class="photo" src="images/imagen2.jpg" alt="Foto 2">
+                <div class="message">
+                    Tu sonrisa ilumina hasta el día más oscuro y tu risa es la melodía más hermosa que he escuchado. Eres mi sol, mi luna y todas mis estrellas. Gracias por llenar mi mundo de color y alegría. 🌟
+                </div>
+            </div>
+            
+            <div class="photo-card" onclick="showMessage(2)">
+                <img class="photo" src="images/imagen3.jpg" alt="Foto 3">
+                <div class="message">
+                    En tus ojos encuentro mi hogar, en tus brazos encuentro mi refugio. Eres el amor de mi vida, mi alma gemela, mi todo. Cada día contigo es una nueva aventura llena de amor y felicidad. 💖
+                </div>
+            </div>
+            
+            <div class="photo-card" onclick="showMessage(3)">
+                <img class="photo" src="images/imagen4.jpg" alt="Foto 4">
+                <div class="message">
+                    Eres más hermosa que todas las flores del mundo, más brillante que todas las estrellas del universo. Mi princesa, mi reina, mi amor eterno. Contigo he encontrado el significado verdadero del amor. 👑
+                </div>
+            </div>
+            
+            <div class="photo-card" onclick="showMessage(4)">
+                <img class="photo" src="images/imagen5.jpg" alt="Foto 5">
+                <div class="message">
+                    Tu energía positiva y tu espíritu libre me inspiran cada día. Eres mi rayo de sol en los días nublados, mi motivación para ser mejor persona. Te amo con todo mi ser, mi amor hermoso. 🌈
+                </div>
+            </div>
+            
+            <div class="photo-card" onclick="showMessage(5)">
+                <img class="photo" src="images/imagen6.jpg" alt="Foto 6">
+                <div class="message">
+                    Eres mi destino, mi complemento perfecto, la persona con quien quiero compartir cada amanecer y cada atardecer. Mi corazón es tuyo para siempre, y mi amor por ti crece más cada día que pasa. 💕
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            Haz clic en cada foto para descubrir lo mucho que te amo 💝
+        </div>
+    </div>
+    
+    <div class="hearts" id="hearts"></div>
+    
+    <script>
+        let currentActiveCard = null;
+        
+        function showMessage(index) {
+            const cards = document.querySelectorAll('.photo-card');
+            const messages = document.querySelectorAll('.message');
+            
+            if (currentActiveCard !== null) {
+                cards[currentActiveCard].classList.remove('active');
+                messages[currentActiveCard].classList.remove('visible');
+            }
+            
+            if (currentActiveCard === index) {
+                currentActiveCard = null;
+                return;
+            }
+            
+            cards[index].classList.add('active');
+            setTimeout(() => {
+                messages[index].classList.add('visible');
+            }, 200);
+            
+            currentActiveCard = index;
+            createHearts(cards[index]);
+        }
+        
+        function createHearts(element) {
+            const rect = element.getBoundingClientRect();
+            const heartsContainer = document.getElementById('hearts');
+            
+            for (let i = 0; i < 5; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '💝';
+                heart.style.left = (rect.left + Math.random() * rect.width) + 'px';
+                heart.style.top = (rect.top + Math.random() * rect.height) + 'px';
+                
+                heartsContainer.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 3000);
+            }
+        }
+        
+        function createBackgroundHearts() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '💝';
+            heart.style.position = 'fixed';
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.top = window.innerHeight + 'px';
+            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+            heart.style.opacity = '0.3';
+            heart.style.pointerEvents = 'none';
+            heart.style.zIndex = '1';
+            heart.style.animation = 'float-up 8s linear forwards';
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+        
+        setInterval(createBackgroundHearts, 3000);
+    </script>
+</body>
+</html>
